@@ -9,7 +9,7 @@ function change(c) {
   coins %= 10;
   const nickles = coins / 5;
   coins %= 5;
-  return [Math.trunc(quarters), Math.trunc(dimes), Math.trunc(nickles), c];
+  return [Math.trunc(quarters), Math.trunc(dimes), Math.trunc(nickles), coins];
 }
 
 function stripQuotes(s) {
@@ -27,7 +27,7 @@ function scramble(w) {
   return scrambledWord;
 }
 
-function powers(base, limit, p) {
+function powers(base, limit, p) { // BUG
   let num = 0;
   let i = 0;
   while (num < limit) {
