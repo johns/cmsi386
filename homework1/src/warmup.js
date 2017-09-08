@@ -32,15 +32,24 @@ function powers(base, limit, p) {
   let i = 0;
   while (num < limit) {
     num = base ** i;
-    i += 1;
+    i += i;
   }
 }
 
-  function say(word) {
-  return say(nextWord) {
-    console.log(greeting + ", " + name);
-  };
-};
+function* powersGenerator(base, limit) {
+  let answer = 1;
+  while (answer < limit) {
+    if (answer === 1) {
+      answer = base;
+      yield answer;
+    }
+    yield answer;
+    answer **= base;
+  }
+}
+
+function say() {
+}
 
 function interleave(a, ...v) {
   let counter = 0;
@@ -59,5 +68,5 @@ function interleave(a, ...v) {
 }
 
 module.exports = {
-  change, stripQuotes, scramble, powers, say, interleave,
+  change, stripQuotes, scramble, powers, powersGenerator, say, interleave,
 };
