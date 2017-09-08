@@ -48,10 +48,25 @@ function* powersGenerator(base, limit) {
   }
 }
 
-// function say(word) {
-//   return (`${word} ${say(word)}`);
-// }
+function say() {
+}
+
+function interleave(a, ...v) {
+  let counter = 0;
+  const result = [];
+  for (let i = 0; i < a.length; i += 1) {
+    result.push(a[i]);
+    if (i < v.length) {
+      result.push(v[i]);
+    }
+    counter = i + 1;
+  }
+  for (let j = counter; j < v.length; j += 1) {
+    result.push(v[j]);
+  }
+  return result;
+}
 
 module.exports = {
-  change, stripQuotes, scramble, powers, powersGenerator
+  change, stripQuotes, scramble, powers, powersGenerator, say, interleave,
 };
