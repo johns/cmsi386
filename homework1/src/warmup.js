@@ -1,38 +1,39 @@
-function change (c) {
-	if (c < 0) {
-		throw new RangeError("Amount Cannot be Negative");
-	}
-	var quarters = c/25;
-	c %= 25;
-	var dimes = c/10;
-	c %= 10;
-	var nickles = c/5;
-	c %= 5;
-	var pennies = c/1;
-	return [Math.trunc(quarters), Math.trunc(dimes), Math.trunc(nickles), pennies];
+function change(c) {
+  if (c < 0) {
+    throw new RangeError('Amount Cannot be Negative');
+  }
+  let coins = c;
+  const quarters = coins / 25;
+  coins %= 25;
+  const dimes = coins / 10;
+  coins %= 10;
+  const nickles = coins / 5;
+  coins %= 5;
+  return [Math.trunc(quarters), Math.trunc(dimes), Math.trunc(nickles), c];
 }
 
-function stripQuotes (s) {
-	return s.replace(/"|'/gi, "");
+function stripQuotes(s) {
+  return s.replace(/"|'/gi, '');
 }
 
-function scramble (s) {
-	var scrambledWord = "";
-	while (s.length > 0) {
-		var randomIndex = Math.trunc(Math.random() * s.length);
-		scrambledWord += s.charAt(randomIndex);
-		s = s.replace(s.charAt(randomIndex), "");
-	}
-	return scrambledWord
+function scramble(w) {
+  let words = w;
+  let scrambledWord = '';
+  while (words.length > 0) {
+    const randomIndex = Math.trunc(Math.random() * words.length);
+    scrambledWord += words.charAt(randomIndex);
+    words = words.replace(words.charAt(randomIndex), '');
+  }
+  return scrambledWord;
 }
 
-function powers (base, limit, p) {
-	var num = 0;
-	var i = 0;
-	while (num < limit) {
-		num = Math.pow(base, i)
-		i++;
-	}
+function powers(base, limit, p) {
+  let num = 0;
+  let i = 0;
+  while (num < limit) {
+    num = base ** i;
+    i++;
+  }
 }
 
 
