@@ -32,11 +32,26 @@ function powers(base, limit, p) {
   let i = 0;
   while (num < limit) {
     num = base ** i;
-    i++;
+    i += i;
   }
 }
 
+function* powersGenerator(base, limit) {
+  let answer = 1;
+  while (answer < limit) {
+    if (answer === 1) {
+      answer = base;
+      yield answer;
+    }
+    yield answer;
+    answer **= base;
+  }
+}
+
+// function say(word) {
+//   return (`${word} ${say(word)}`);
+// }
 
 module.exports = {
-  change, stripQuotes, scramble, powers,
+  change, stripQuotes, scramble, powers, powersGenerator
 };
