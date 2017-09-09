@@ -27,7 +27,7 @@ function scramble(w) {
   return scrambledWord;
 }
 
-function powers(base, limit, p) { // BUG
+function powers(base, limit, p) {
   let answer = 1;
   let exp = 0;
   while (answer <= limit) {
@@ -38,18 +38,11 @@ function powers(base, limit, p) { // BUG
 }
 
 function* powersGenerator(base, limit) {
-  let answer = 1;
-  while (answer < limit) {
-    if (answer === 1) {
-      answer = base;
-      yield answer;
-    }
-    yield answer;
-    answer **= base;
+  let exp = 0;
+  while (base ** exp <= limit) {
+    yield base ** exp;
+    exp += 1;
   }
-}
-
-function say() {
 }
 
 function interleave(a, ...v) {
@@ -69,5 +62,5 @@ function interleave(a, ...v) {
 }
 
 module.exports = {
-  change, stripQuotes, scramble, powers, powersGenerator, say, interleave,
+  change, stripQuotes, scramble, powers, powersGenerator, interleave,
 };
