@@ -28,11 +28,12 @@ function scramble(w) {
 }
 
 function powers(base, limit, p) { // BUG
-  if (p === undefined) {
-    powers(base, limit, 1);
-  }
-  if (p <= limit) {
-    powers(base, limit, base * p);
+  let answer = 1;
+  let exp = 0;
+  while (answer <= limit) {
+    p(answer);
+    answer = base ** exp;
+    exp += 1;
   }
 }
 
