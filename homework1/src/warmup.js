@@ -28,28 +28,30 @@ function scramble(w) {
 }
 
 function powers(base, limit, p) {
-  let num = 0;
-  let i = 0;
-  while (num < limit) {
-    num = base ** i;
-    i += i;
+  let answer = 1;
+  let exp = 0;
+  while (answer <= limit) {
+    p(answer);
+    answer = base ** exp;
+    exp += 1;
   }
 }
 
 function* powersGenerator(base, limit) {
-  let answer = 1;
-  while (answer < limit) {
-    if (answer === 1) {
-      answer = base;
-      yield answer;
-    }
-    yield answer;
-    answer **= base;
+  let exp = 0;
+  while (base ** exp <= limit) {
+    yield base ** exp;
+    exp += 1;
   }
 }
 
-function say() {
-}
+const say = ((word) => {
+  let result = word;
+  return () => {
+    result += word;
+    return result;
+  };
+})();
 
 function interleave(a, ...v) {
   let counter = 0;
@@ -67,6 +69,24 @@ function interleave(a, ...v) {
   return result;
 }
 
+function cylinder(c) {
+  let { radius, height } = c;
+  if (radius === undefined) {
+    radius = 1;
+  }
+  if (height === undefined) {
+    height = 1;
+  }
+  const surfaceArea = () => (2 * Math.PI * radius * height) + (2 * Math.PI * radius * radius);
+  const volume = () => Math.PI * radius * radius * height;
+  const widen = (factor) => { radius *= factor; };
+  const stretch = (factor) => { height *= factor; };
+  const toString = () => `Cylinder with radius ${radius} and height ${height}`;
+  return Object.freeze({
+    radius, height, surfaceArea, volume, widen, stretch, toString,
+  });
+}
+
 module.exports = {
-  change, stripQuotes, scramble, powers, powersGenerator, say, interleave,
+  change, stripQuotes, scramble, powers, powersGenerator, say, interleave, cylinder,
 };
