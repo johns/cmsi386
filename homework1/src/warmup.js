@@ -45,6 +45,7 @@ function* powersGenerator(base, limit) {
   }
 }
 
+<<<<<<< HEAD
 const say = ((word) => {
   let result = word;
   return () => {
@@ -53,6 +54,8 @@ const say = ((word) => {
   };
 })();
 
+=======
+>>>>>>> 0ca7fb2cee9c17a632e3b2ee27a831793cb4a1b0
 function interleave(a, ...v) {
   let counter = 0;
   const result = [];
@@ -88,5 +91,9 @@ function cylinder(c) {
 }
 
 module.exports = {
+<<<<<<< HEAD
   change, stripQuotes, scramble, powers, powersGenerator, say, interleave, cylinder,
+=======
+  change, stripQuotes, scramble, powers, powersGenerator, interleave,
+>>>>>>> 0ca7fb2cee9c17a632e3b2ee27a831793cb4a1b0
 };
