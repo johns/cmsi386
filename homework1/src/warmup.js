@@ -45,13 +45,13 @@ function* powersGenerator(base, limit) {
   }
 }
 
-const say = ((word) => {
-  let result = word;
-  return () => {
-    result += word;
-    return result;
-  };
-})();
+// const say = ((word) => {
+//   let result = word;
+//   return () => {
+//     result += word;
+//     return result;
+//   };
+// })();
 
 function interleave(a, ...v) {
   let counter = 0;
@@ -69,7 +69,7 @@ function interleave(a, ...v) {
   return result;
 }
 
-function makeCryptoFunctions(key, algorithm) {
+function makeCryptoFunctions(key, algorithm) { // Add specific throw error
   const crypto = require('crypto');
   function encrypt(text) {
     const cipher = crypto.createCipher(algorithm, key);
@@ -110,8 +110,9 @@ module.exports = {
   scramble,
   powers,
   powersGenerator,
-  say,
+  // say,
   interleave,
-  makeCryptoFunctions,
   cylinder,
+  makeCryptoFunctions,
+  // randomName
 };
