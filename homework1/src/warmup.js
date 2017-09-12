@@ -69,23 +69,6 @@ function interleave(a, ...v) {
   return result;
 }
 
-function makeCryptoFunctions(key, algorithm) {
-  const crypto = require('crypto');
-  function encrypt(text) {
-    const cipher = crypto.createCipher(algorithm, key);
-    let crypted = cipher.update(text, 'utf8', 'hex');
-    crypted += cipher.final('hex');
-    return crypted;
-  }
-  function decrypt(text) {
-    const decipher = crypto.createDecipher(algorithm, key);
-    let dec = decipher.update(text, 'hex', 'utf8');
-    dec += decipher.final('utf8');
-    return dec;
-  }
-  return [encrypt, decrypt];
-}
-
 function cylinder(c) {
   let { radius, height } = c;
   if (radius === undefined) {
@@ -104,6 +87,28 @@ function cylinder(c) {
   });
 }
 
+const crypto = require('crypto');
+
+function makeCryptoFunctions(key, algorithm) {
+  function encrypt(text) {
+    const cipher = crypto.createCipher(algorithm, key);
+    let crypted = cipher.update(text, 'utf8', 'hex');
+    crypted += cipher.final('hex');
+    return crypted;
+  }
+  function decrypt(text) {
+    const decipher = crypto.createDecipher(algorithm, key);
+    let dec = decipher.update(text, 'hex', 'utf8');
+    dec += decipher.final('utf8');
+    return dec;
+  }
+  return [encrypt, decrypt];
+}
+
+function randomName() {
+
+}
+
 module.exports = {
   change,
   stripQuotes,
@@ -112,6 +117,7 @@ module.exports = {
   powersGenerator,
   say,
   interleave,
-  makeCryptoFunctions,
   cylinder,
+  makeCryptoFunctions,
+  randomName,
 };
