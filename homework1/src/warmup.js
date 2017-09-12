@@ -29,7 +29,7 @@ function scramble(w) {
 
 function powers(base, limit, p) {
   let answer = 1;
-  let exp = 0;
+  let exp = 1;
   while (answer <= limit) {
     p(answer);
     answer = base ** exp;
@@ -61,6 +61,23 @@ function interleave(a, ...v) {
   return result;
 }
 
+function makeCryptoFunctions(key, algorithm) {
+  const crypto = require('crypto');
+  function encrypt(text) {
+    const cipher = crypto.createCipher(algorithm, key);
+    let crypted = cipher.update(text, 'utf8', 'hex');
+    crypted += cipher.final('hex');
+    return crypted;
+  }
+  function decrypt(text) {
+    const decipher = crypto.createDecipher(algorithm, key);
+    let dec = decipher.update(text, 'hex', 'utf8');
+    dec += decipher.final('utf8');
+    return dec;
+  }
+  return [encrypt, decrypt];
+}
+
 module.exports = {
-  change, stripQuotes, scramble, powers, powersGenerator, interleave,
+  change, stripQuotes, scramble, powers, powersGenerator, interleave, makeCryptoFunctions,
 };
