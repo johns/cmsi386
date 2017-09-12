@@ -45,8 +45,16 @@ function* powersGenerator(base, limit) {
   }
 }
 
-function say() {
-
+function say(s) {
+  if (!s) {
+    return '';
+  }
+  return function sayMore(str) {
+    if (str) {
+      return say(`${s} ${str}`);
+    }
+    return s;
+  };
 }
 
 function interleave(a, ...v) {
@@ -101,8 +109,9 @@ function makeCryptoFunctions(key, algorithm) {
   return [encrypt, decrypt];
 }
 
-function randomName() {
-
+function randomName(params) {
+  return new Promise((resolve, reject) => {
+  });
 }
 
 module.exports = {
