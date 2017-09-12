@@ -79,7 +79,7 @@ function cylinder(c) {
   const stretch = (factor) => { height *= factor; };
   const toString = () => `Cylinder with radius ${radius} and height ${height}`;
   return Object.freeze({
-    radius, height, surfaceArea, volume, widen, stretch, toString,
+    height, radius, surfaceArea, volume, widen, stretch, toString,
   });
 }
 
