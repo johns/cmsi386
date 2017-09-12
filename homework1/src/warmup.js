@@ -45,13 +45,9 @@ function* powersGenerator(base, limit) {
   }
 }
 
-const say = ((word) => {
-  let result = word;
-  return () => {
-    result += word;
-    return result;
-  };
-})();
+function say() {
+
+}
 
 function interleave(a, ...v) {
   let counter = 0;
