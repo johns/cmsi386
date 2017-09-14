@@ -76,13 +76,18 @@ function interleave(a, ...v) {
 function cylinder({ radius = 1, height = 1 }) {
   const surfaceArea = () => (2 * Math.PI * radius * height) + (2 * Math.PI * radius * radius);
   const volume = () => Math.PI * radius * radius * height;
-  const widen = (factor) => { obj.radius = radius * factor; };
-  const stretch = (factor) => { obj.height = height * factor; };
+  const widen = (factor) => { radius *= factor; };
+  const stretch = (factor) => { height *= factor; };
   const toString = () => `Cylinder with radius ${radius} and height ${height}`;
-  const obj = {
-    radius, height, surfaceArea, volume, widen, stretch, toString,
-  };
-  return Object.freeze(obj);
+  return Object.freeze({
+    get radius() { return radius; },
+    get height() { return height; },
+    surfaceArea,
+    volume,
+    widen,
+    stretch,
+    toString,
+  });
 }
 
 const crypto = require('crypto');
@@ -105,16 +110,17 @@ function makeCryptoFunctions(key, algorithm) {
 
 function randomName(params) {
   // let { gender, region } = params;
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://uinames.com/api/');
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('GET', 'https://uinames.com/api/');
 
   // xhr.send();
   // {
   //   "gender": gender,
   //   'region': region
   //   }
-  xhr.send();
-  // return new Promise((resolve, reject) => {
+  // xhr.send();
+  // return new Promise((resolve, reject) => {});
+  throw new Error('This is not done yet');
 }
 
 module.exports = {
