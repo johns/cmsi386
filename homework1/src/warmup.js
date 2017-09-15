@@ -1,3 +1,6 @@
+const rp = require('request-promise');
+const crypto = require('crypto');
+
 function change(c) {
   if (c < 0) {
     throw new RangeError('Amount Cannot be Negative');
@@ -90,8 +93,6 @@ function cylinder({ radius = 1, height = 1 }) {
   });
 }
 
-const crypto = require('crypto');
-
 function makeCryptoFunctions(key, algorithm) {
   function encrypt(text) {
     const cipher = crypto.createCipher(algorithm, key);
@@ -109,18 +110,10 @@ function makeCryptoFunctions(key, algorithm) {
 }
 
 function randomName(params) {
-  // let { gender, region } = params;
-  // const xhr = new XMLHttpRequest();
-  // xhr.open('GET', 'https://uinames.com/api/');
-
-  // xhr.send();
-  // {
-  //   "gender": gender,
-  //   'region': region
-  //   }
-  // xhr.send();
-  // return new Promise((resolve, reject) => {});
-  throw new Error('This is not done yet');
+  const { region, gender } = params;
+  const url = 'https://uinames.com/api/';
+  return rp(`${url}?amount=1&gender=${gender}&region=${region}`)
+    .then(body => `${body.surname}, ${body.name}`);
 }
 
 module.exports = {
