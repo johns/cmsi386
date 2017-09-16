@@ -16,7 +16,10 @@
   ],
   "author": "jscott",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
   "devDependencies": {
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
