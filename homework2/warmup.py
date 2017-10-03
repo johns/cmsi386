@@ -24,7 +24,16 @@ def scramble(s):
 
 def say(word): return 0
 def triples(): return 0
-def powers(): return 0
+
+def powers(base, limit):
+    exponent = 0
+    current = 1
+    while current <= limit:
+        yield current
+        exponent = exponent + 1
+        current = base ** exponent
+
+
 def interleave(): return 0
 def Cylinder(): return 0
 def make_crypto_functions(): return 0
