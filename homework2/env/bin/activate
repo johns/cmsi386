@@ -34,10 +34,10 @@ deactivate () {
     fi
 }
 
-# unset irrelavent variables
+# unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/John/lmu/lmu-cmsi-386/homework2/env"
+VIRTUAL_ENV='/Users/Sam/Dropbox/College\ 3Junior\ Year/Programming\ Languages\ Files/lmu-cmsi-386/lmu-cmsi-386/homework2/env'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

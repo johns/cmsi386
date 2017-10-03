@@ -1,6 +1,5 @@
 from random import shuffle
 
-
 def change(c):
     if c < 0:
         raise ValueError('amount cannot be negative')
@@ -9,18 +8,15 @@ def change(c):
     nickles = divmod(dimes[1], 5)
     return quarters[0], dimes[0], nickles[0], nickles[1]
 
-
 def strip_quotes(quote):
     quote = quote.replace('\'', '')
     quote = quote.replace('"', '')
     return quote
 
-
 def scramble(s):
     s = list(s)
     shuffle(s)
     return ''.join(s)
-
 
 def say(word): return 0
 def triples(): return 0

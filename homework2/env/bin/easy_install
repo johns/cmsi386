@@ -1,4 +1,4 @@
-#!/Users/John/lmu/lmu-cmsi-386/homework2/env/bin/python3
+#!"/Users/Sam/Dropbox/College\ 3Junior\ Year/Programming\ Languages\ Files/lmu-cmsi-386/lmu-cmsi-386/homework2/env/bin/python3"
 
 # -*- coding: utf-8 -*-
 import re
@@ -7,5 +7,5 @@ import sys
 from setuptools.command.easy_install import main
 
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
     sys.exit(main())
