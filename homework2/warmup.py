@@ -1,33 +1,27 @@
-import random
-import re
+from random import shuffle
 
 def change(c):
-    if amount < 0:
-        rasie()
+    if c < 0:
+        raise ValueError('amount cannot be negative')
+    quarters = divmod(c, 25)
+    dimes = divmod(quarters[1], 10)
+    nickles = divmod(dimes[1], 5)
+    return quarters[0], dimes[0], nickles[0], nickles[1]
 
-def strip_quotes(c):
-    re.sub
+def strip_quotes(quote):
+    quote = quote.replace('\'', '')
+    quote = quote.replace('"', '')
+    return quote
 
-def scramble(c):
-    join(random.Sample())
+def scramble(s):
+    s = list(s)
+    shuffle(s)
+    return ''.join(s)
 
-def say(c):
-    return c
-
-def triples(c):
-    return c
-
-def powers(c):
-    return c
-
-def interleave(c):
-    return c
-
-def Cylinder(c):
-    return c
-
-def make_crypto_functions(c):
-    return c
-
-def random_name(c):
-    return c
+def say(word): return 0
+def triples(): return 0
+def powers(): return 0
+def interleave(): return 0
+def Cylinder(): return 0
+def make_crypto_functions(): return 0
+def random_name(): return 0
