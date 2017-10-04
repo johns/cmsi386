@@ -47,8 +47,15 @@ def powers(base, limit):
         current = base ** exponent
 
 
-def interleave():
-    return "oops"
+def interleave(x, *y):
+    result = []
+    while x or y:
+        if x:
+            result.append(x.pop(0))
+        if y:
+            result.append(y[0])
+            y = y[1:]
+    return result
 
 
 class Cylinder:
