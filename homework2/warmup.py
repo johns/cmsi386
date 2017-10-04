@@ -22,7 +22,14 @@ def scramble(s):
     return ''.join(s)
 
 
-def say(word): return 0
+def say(x):
+    if !x:
+        return ''
+    def sayMore(y):
+        if y:
+            return say(x, ' ', y)
+        return s
+    return sayMore
 
 
 def triples(): return 0
