@@ -25,13 +25,14 @@ def scramble(s):
 
 
 def say(x=''):
-    def sayMore(y=''):
-        if y != '':
-            return say(x + ' ' + y)
-        return y
     if x == '':
-        return x
-    return sayMore()
+        return ''
+
+    def _sayMore(y=''):
+        if y == '':
+            return x
+        return say(x + ' ' + y)
+    return _sayMore
 
 
 def triples(h):
