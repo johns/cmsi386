@@ -26,7 +26,7 @@ def scramble(s):
 
 def say(x=''):
     if x == '':
-        return ''
+        return x
 
     def _sayMore(y=''):
         if y == '':
