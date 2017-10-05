@@ -34,8 +34,17 @@ def say(x=''):
     return sayMore()
 
 
-def triples():
-    return 0
+def triples(h):
+    set_of_triples = []
+
+    for a in range(3, h):
+        for c in range(5, h+1):
+            if c > a:
+                b = math.sqrt((c ** 2) - (a ** 2))
+                if b == int(b) and b > a:
+                    set_of_triples.append((a, int(b), c))
+
+    return set_of_triples
 
 
 def powers(base, limit):
