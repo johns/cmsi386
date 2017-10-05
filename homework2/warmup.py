@@ -1,6 +1,6 @@
 from random import shuffle
+from Crypto.Cipher import AES
 import math
-
 
 
 def change(c):
@@ -92,8 +92,17 @@ class Cylinder:
         return self
 
 
-def make_crypto_functions():
-    return 0
+def make_crypto_functions(key, iv):
+
+    def encrypt(plainText):
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        return cipher.encrypt(plainText)
+
+    def decrypt(encryptedText):
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        return cipher.decrypt(encryptedText)
+
+    return [encrypt, decrypt]
 
 
 def random_name():
