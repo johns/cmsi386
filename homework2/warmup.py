@@ -29,11 +29,11 @@ def say(x=''):
     if x == '':
         return x
 
-    def _sayMore(y=''):
+    def say_more(y=''):
         if y == '':
             return x
         return say(x + ' ' + y)
-    return _sayMore
+    return say_more
 
 
 def triples(h):
@@ -75,19 +75,19 @@ class Cylinder:
         self.height = height
         self.volume = None
         self.surface_area = None
-        self.getMeasurements()
+        self.get_measurements()
 
     def stretch(self, factor):
         self.height *= factor
-        self.getMeasurements()
+        self.get_measurements()
         return self
 
     def widen(self, factor):
         self.radius *= factor
-        self.getMeasurements()
+        self.get_measurements()
         return self
 
-    def getMeasurements(self):
+    def get_measurements(self):
         self.volume = math.pi * (self.radius ** 2) * self.height
         self.surface_area = 2 * math.pi * self.radius * (self.radius + self.height)
         return self
@@ -95,13 +95,13 @@ class Cylinder:
 
 def make_crypto_functions(key, iv):
 
-    def encrypt(plainText):
+    def encrypt(plain_text):
         cipher = AES.new(key, AES.MODE_CBC, iv)
-        return cipher.encrypt(plainText)
+        return cipher.encrypt(plain_text)
 
-    def decrypt(encryptedText):
+    def decrypt(encrypted_text):
         cipher = AES.new(key, AES.MODE_CBC, iv)
-        return cipher.decrypt(encryptedText)
+        return cipher.decrypt(encrypted_text)
     return (encrypt, decrypt)
 
 
@@ -111,4 +111,4 @@ def random_name(**args):
     req = requests.get('https://uinames.com/api/', params={'gender': gender, 'region': region, 'amount': 1})
     if 'error' in req.json():
         raise ValueError(req.text)
-    return '{},{}'.format(req.json()['surname'], req.json()['name'])
+    return '{}, {}'.format(req.json()['surname'], req.json()['name'])
