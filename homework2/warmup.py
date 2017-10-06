@@ -1,6 +1,6 @@
 from random import shuffle
-import math
 from Crypto.Cipher import AES
+import math
 import requests
 
 
