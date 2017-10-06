@@ -1,6 +1,7 @@
 from random import shuffle
-from Crypto.Cipher import AES
 import math
+from Crypto.Cipher import AES
+import requests
 
 
 def change(c):
@@ -105,5 +106,11 @@ def make_crypto_functions(key, iv):
     return [encrypt, decrypt]
 
 
-def random_name():
-    return 0
+def random_name(**args):
+    gender = args['gender']
+    region = args['region']
+    req = requests.get('https://uinames.com/api/',
+                       params={'gender': gender, 'region': region, 'amount': 1})
+    if 'error' in req.json():
+        raise ValueError(req.text)
+    return '{},{}'.format(req.json()['surname'], req.json()['name'])
