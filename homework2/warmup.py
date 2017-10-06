@@ -101,8 +101,7 @@ def make_crypto_functions(key, iv):
     def decrypt(encryptedText):
         cipher = AES.new(key, AES.MODE_CBC, iv)
         return cipher.decrypt(encryptedText)
-
-    return [encrypt, decrypt]
+    return (encrypt, decrypt)
 
 
 def random_name():
