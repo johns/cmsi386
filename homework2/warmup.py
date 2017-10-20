@@ -1,7 +1,7 @@
-from random import shuffle
 import math
-from Crypto.Cipher import AES
+from random import shuffle
 import requests
+from Crypto.Cipher import AES
 
 
 def change(c):
@@ -102,8 +102,7 @@ def make_crypto_functions(key, iv):
     def decrypt(encrypted_text):
         cipher = AES.new(key, AES.MODE_CBC, iv)
         return cipher.decrypt(encrypted_text)
-
-    return [encrypt, decrypt]
+    return (encrypt, decrypt)
 
 
 def random_name(**args):
