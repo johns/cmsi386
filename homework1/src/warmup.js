@@ -24,8 +24,8 @@ function scramble(w) {
   let scrambledWord = '';
   while (words.length > 0) {
     const randomIndex = Math.trunc(Math.random() * words.length);
-    scrambledWord += words.charAt(randomIndex);
-    words = words.replace(words.charAt(randomIndex), '');
+    scrambledWord += words[randomIndex];
+    words = words.replace(words[randomIndex], '');
   }
   return scrambledWord;
 }
@@ -40,14 +40,24 @@ function powers(base, limit, p) {
   }
 }
 
+/*
+ * A generator that generates successive powers of a base, up to the given limit.
+ */
 function* powersGenerator(base, limit) {
   let exp = 0;
-  while (base ** exp <= limit) {
-    yield base ** exp;
+  let power = 1;
+  while (power <= limit) {
+    yield power;
     exp += 1;
+    power = base ** exp;
   }
 }
 
+/*
+* Chainedable function. Returns string of word strung together
+* Example: say('hi')('what')('is')('your')('name?')
+* returns 'hi what is your name?'
+*/
 function say(s) {
   if (!s) {
     return '';
