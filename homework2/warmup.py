@@ -19,33 +19,32 @@ def strip_quotes(quote):
     return quote
 
 
-def scramble(s):
-    s = list(s)
-    shuffle(s)
-    return ''.join(s)
+def scramble(phrase):
+    result = list(phrase)
+    shuffle(result)
+    return ''.join(result)
 
 
-def say(x=''):
-    if x == '':
-        return x
+def say(firstWord=''):
+    if firstWord == '':
+        return firstWord
 
-    def say_more(y=''):
-        if y == '':
-            return x
-        return say(x + ' ' + y)
+    def say_more(nextWord=''):
+        if nextWord == '':
+            return firstWord
+        return say(firstWord + ' ' + nextWord)
     return say_more
 
 
-def triples(h):
+def triples(limit):
     set_of_triples = []
 
-    for a in range(3, h):
-        for c in range(5, h+1):
+    for a in range(3, limit):
+        for c in range(a+1, limit + 1):
             if c > a:
                 b = math.sqrt((c ** 2) - (a ** 2))
                 if b == int(b) and b > a:
                     set_of_triples.append((a, int(b), c))
-
     return set_of_triples
 
 
