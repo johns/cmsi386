@@ -7,7 +7,7 @@ struct {
   char c;
 } A[10][10];
 ```
-###On your machine, find the address of A[0][0] and A[3][7]. Explain why these values are what you found them to be.
+### On your machine, find the address of A[0][0] and A[3][7]. Explain why these values are what you found them to be.
 
 >ANSWER HERE
 
