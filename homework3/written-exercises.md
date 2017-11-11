@@ -1,4 +1,4 @@
-# Homework 1-7 Answers
+# Homework 1-6 Answers
 
 ### 1. Given the C++ declaration:
 ```C++
@@ -9,8 +9,18 @@ struct {
 ```
 ### On your machine, find the address of A[0][0] and A[3][7]. Explain why these values are what you found them to be.
 
->ANSWER HERE
+>For the array's first value at A[0][0], the memory address is randomly allocated. Consider the values to be A[x][y]. The natural allocation of memory looks like this:
+[0][0]
+[0][1]
+.
+.
+[0][9]
+[1][0]
+(The pointer for [0][10] points to the same memory address as the pointer for [1][0]. However, [0][10] is not within the size of the array.)
+When y is incremented by 1, 8 in hexadecimal is added to the memory address to allocate memory for a char's size, which is 8 bits. When x is incremented by 1, the memory is still allocated for the 10 y's that belong to the previous x value. For that reason, the memory address when x is incremented by 1 increases by 50 in hexadecimal (8 * a in hex is 50. a(hex) = 10(dec)).
 
+
+---
 ### 2. Explain the meaning of the following C++ declarations:
 ```C++
 double *a[n];
@@ -20,6 +30,7 @@ double (*d())[n];
 ```
 >Answer Here
 
+---
 ### 3. Consider the following declaration in C++:
 ```C++
 double (*f(double (*)(double, double[]), double)) (double, ...);
@@ -28,6 +39,7 @@ double (*f(double (*)(double, double[]), double)) (double, ...);
 
 >ANSWER Here
 
+---
 ### 4. What happens when we “redefine” a field in a C++ subclass? For example, suppose we have:
 ```C++
 class Base {
@@ -46,7 +58,7 @@ public:
 
 >ANSWER Here
 
-
+---
 ### 5. What does the following C++ program output?
 ```C++
 #include <iostream>
@@ -62,6 +74,7 @@ int main() {
 
 >ANSWER Here
 
+---
 ### 6. Suppose you were asked to write a function to scramble (shuffle) a given array, in a mutable fashion. Give the function signature for a shuffle function for (a) a raw array, and (b) a std::array.
 a.
 ```C++
