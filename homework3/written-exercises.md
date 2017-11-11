@@ -16,19 +16,25 @@ struct {
 .  
 [0][9]  
 [1][0]  
+.  
+.  
+[9][8]  
+[9][9]  
 (The pointer for [0][10] points to the same memory address as the pointer for [1][0]. However, [0][10] is not within the size of the array.)  
 When y is incremented by 1, 8 in hexadecimal is added to the memory address to allocate memory for a char's size, which is 8 bits. When x is incremented by 1, the memory is still allocated for the 10 y's that belong to the previous x value. For that reason, the memory address when x is incremented by 1 increases by 50 in hexadecimal (8 * a in hex is 50. a(hex) = 10(dec)).
-
 
 ---
 ### 2. Explain the meaning of the following C++ declarations:
 ```C++
-double *a[n];
-double (*b)[n];
-double (*c[n])();
-double (*d())[n];
+double *a[n];       //a
+double (*b)[n];     //b
+double (*c[n])();   //c
+double (*d())[n];   //d
 ```
->Answer Here
+>a. The asterisk (*) symbol denotes pointers in C++. Therefore, this is declaring an array of n pointers which point to doubles.  
+b. The (*b) value is a pointer to an array of doubles. [n] is the amount of doubles in the array.  
+c. Inside the initial parenthesis, there is an array of pointers. These pointers point to functions that all return doubles.  
+d. The first thing that should be read is a function d(), which returns a pointer. This pointer points to an array of n doubles.
 
 ---
 ### 3. Consider the following declaration in C++:
