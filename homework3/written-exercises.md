@@ -78,7 +78,16 @@ int main() {
 ```
 ### Verify that the answer you obtained is the same that would be inferred from apply the rules of static scoping. If C++ used dynamic scoping, what would the output have been?
 
->ANSWER Here
+> The program outputs  
+2  
+5  
+2  
+In C++, functions first check for variables on the closest scope and then look outwards because the language is statically scoped. In f(), there is no locally declared integers named x. Therefore, when x is called, the function looks to the next outward scope and finds the globally declared x. The main method looks globally as well because x is not declared within main. In g(), integer x is declared locally, and therefore, when x is called, it refers to the local integer x.  
+If C++ was dynamically scoped, the output would be  
+5  
+5  
+2  
+Since f() is called within g(), it would look for variables first locally and then within g(). This is because in a dynamically scoped language, the function looks to the scope in which the function was called so long as variables aren't declared locally.
 
 ---
 ### 6. Suppose you were asked to write a function to scramble (shuffle) a given array, in a mutable fashion. Give the function signature for a shuffle function for (a) a raw array, and (b) a std::array.
