@@ -62,7 +62,7 @@ public:
 ```
 ### Does the representation of a Derived object contain one b field or two? If two, are both accessible, or only one? Under what circumstances? Tell the story of how things are.
 
->ANSWER Here
+> The representation of a Derived object contains two b fields and both are accessible. It is possible to access base class fields (std::string b) using the scope resolution operator (::) even if they are made hidden by a derived class field (int b). For example if we created a Derived object d, we could access its b field by just saying d.b or we could access its inherited Base b field by saying d.Base::b. This is because when a C++ subclass defines a field that already has a defined field with the same name in the base class it simply using the one it defines as default and hides the base one.
 
 ---
 ### 5. What does the following C++ program output?
