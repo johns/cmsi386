@@ -22,6 +22,7 @@ struct {
 [9][9]  
 (The pointer for [0][10] points to the same memory address as the pointer for [1][0]. However, [0][10] is not within the size of the array.)  
 When y is incremented by 1, 8 in hexadecimal is added to the memory address to allocate memory for a char's size, which is 8 bits. When x is incremented by 1, the memory is still allocated for the 10 y's that belong to the previous x value. For that reason, the memory address when x is incremented by 1 increases by 50 in hexadecimal (8 * a in hex is 50. a(hex) = 10(dec)).
+In one iteration on the computer, **A[0][0] is addressed at 0x5604fe8101c0 and A[3][7] is addressed at 0x5604fe8102e8**. The latter storage location has 108 more hexadecimal digits than its former (hex: 50 * 2 + 8 * 7 = 108).
 
 ---
 ### 2. Explain the meaning of the following C++ declarations:
@@ -99,5 +100,5 @@ char[] f(char (&inputs)[N])
 ```
 b.
 ```C++
-std::array shuffle(const std::array<int, 5>)
+std::array shuffle(const std::array<char, 5>)
 ```
