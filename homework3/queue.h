@@ -86,37 +86,3 @@ public:
     return valueToReturn;
   }
 };
-
-// Queue<int> oneTwoThree() {
-//   Queue<int> z;
-//   z.enqueue(3);
-//   z.enqueue(2);
-//   z.enqueue(1);
-//   return z;
-// }
-
-// int main() {
-//   Queue<int> s;
-//   assert(s.get_size() == 0);
-//   s.enqueue(100);
-//   assert(s.get_head() == 100);
-//   assert(s.get_size() == 1);
-//   s.enqueue(200);
-//   assert(s.get_head() == 100);
-//   assert(s.get_tail() == 200);
-//   assert(s.get_size() == 2);
-//   assert(s.dequeue() == 100);
-//   assert(s.get_size() == 1);
-//   assert(s.dequeue() == 200);
-//   assert(s.get_size() == 0);
-//   s.enqueue(300);
-//   s.enqueue(400);
-
-//   Queue<int> t = oneTwoThree();
-//   assert(t.get_size() == 3);
-//   assert(t.get_head() == 3);
-//   assert(t.get_tail() == 1);
-//   s.dequeue();
-  
-//   cout << "All tests passed\n";
-// }
