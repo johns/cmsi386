@@ -44,7 +44,7 @@ double (*f(double (*)(double, double[]), double)) (double, ...);
 ```
 ### Describe rigorously, in English, the type of f.
 
->f is a function **passing** a pointer to a function **(passing** a double and an array of doubles **returning** a double**)** and a double **returning** a pointer to a function **(passing** an indefinite number of doubles as arguments **returning** a double**)**.
+>**f** is a function **passing** a pointer to a function **( passing** a double and an array of doubles **returning** a double **)** and a double **returning** a pointer to a function **( passing** an indefinite number of doubles as arguments **returning** a double **)**.
 
 ---
 ### 4. What happens when we “redefine” a field in a C++ subclass? For example, suppose we have:
