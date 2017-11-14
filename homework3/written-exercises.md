@@ -22,6 +22,7 @@ struct {
 [9][9]  
 (The pointer for [0][10] points to the same memory address as the pointer for [1][0]. However, [0][10] is not within the size of the array.)  
 When y is incremented by 1, 8 in hexadecimal is added to the memory address to allocate memory for a char's size, which is 8 bits. When x is incremented by 1, the memory is still allocated for the 10 y's that belong to the previous x value. For that reason, the memory address when x is incremented by 1 increases by 50 in hexadecimal (8 * a in hex is 50. a(hex) = 10(dec)).
+In one iteration on the computer, **A[0][0] is addressed at 0x5604fe8101c0 and A[3][7] is addressed at 0x5604fe8102e8**. The latter storage location has 108 more hexadecimal digits than its former (hex: 50 * 2 + 8 * 7 = 108).
 
 ---
 ### 2. Explain the meaning of the following C++ declarations:
@@ -62,7 +63,7 @@ public:
 ```
 ### Does the representation of a Derived object contain one b field or two? If two, are both accessible, or only one? Under what circumstances? Tell the story of how things are.
 
->ANSWER Here
+> The representation of a Derived object contains two b fields and both are accessible. It is possible to access base class fields (std::string b) using the scope resolution operator (::) even if they are made hidden by a derived class field (int b). For example if we created a Derived object d, we could access its b field by just saying d.b or we could access its inherited Base b field by saying d.Base::b. This is because when a C++ subclass defines a field that already has a defined field with the same name in the base class it simply uses the one it defines as default and hides the base one.
 
 ---
 ### 5. What does the following C++ program output?
@@ -99,5 +100,5 @@ char[] f(char (&inputs)[N])
 ```
 b.
 ```C++
-std::array shuffle(const std::array<int, 5>)
+std::array shuffle(const std::array<char, 5>)
 ```
