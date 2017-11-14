@@ -22,9 +22,9 @@ class Queue {
 public:
 
   ~Queue() {
-    // while (head != nullptr) {
-    //   dequeue();
-    // }
+    while (head != nullptr) {
+      dequeue();
+    }
   }
 
   Queue() = default;
@@ -62,23 +62,29 @@ public:
     return tail->data;
   }
 
-//   void enqueue(T x) {
-//     if (tail = nullptr) {
-//       tail =
-//     }
-//     head = new Node {x, head};
-//     size++;
+  void enqueue(T x) {
+    Node *temp = new Node {x, nullptr};
+    if (head == nullptr) {
+        head = temp;
+        tail = temp;
+    } else {
+        tail->next = temp;
+        tail = temp;
+    }
+    size++;
+  }
 
-//   }
-
-//   T dequeue() {
-//     Node* nodeToDelete = head;
-//     T valueToReturn = head->data;
-//     head = head->next;
-//     size--;
-//     delete nodeToDelete;
-//     return valueToReturn;
-//   }
+  T dequeue() {
+    if (size == 0) {
+      throw std::underflow_error("Cannot dequeue from an empty Queue.");
+    }
+    Node* nodeToDelete = head;
+    T valueToReturn = head->data;
+    head = head->next;
+    size--;
+    delete nodeToDelete;
+    return valueToReturn;
+  }
 };
 
 // Queue<int> oneTwoThree() {
@@ -89,26 +95,28 @@ public:
 //   return z;
 // }
 
-int main() {
-  Queue<int> s;
-  assert(s.get_size() == 0);
+// int main() {
+//   Queue<int> s;
+//   assert(s.get_size() == 0);
 //   s.enqueue(100);
 //   assert(s.get_head() == 100);
 //   assert(s.get_size() == 1);
 //   s.enqueue(200);
-//   assert(s.get_head() == 200);
+//   assert(s.get_head() == 100);
+//   assert(s.get_tail() == 200);
 //   assert(s.get_size() == 2);
-//   assert(s.dequeue() == 200);
-//   assert(s.get_size() == 1);
 //   assert(s.dequeue() == 100);
+//   assert(s.get_size() == 1);
+//   assert(s.dequeue() == 200);
 //   assert(s.get_size() == 0);
 //   s.enqueue(300);
 //   s.enqueue(400);
 
 //   Queue<int> t = oneTwoThree();
-
-//   t = oneTwoThree();
-
+//   assert(t.get_size() == 3);
+//   assert(t.get_head() == 3);
+//   assert(t.get_tail() == 1);
 //   s.dequeue();
-  cout << "All tests passed\n";
-}
+  
+//   cout << "All tests passed\n";
+// }
