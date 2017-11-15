@@ -12,7 +12,6 @@ public:
   Adder operator()(string word) {
     return Adder(result + " " + word);
   }
-
   string operator()() {
     if (result.length()) {
       result = result.substr(1);
@@ -21,9 +20,8 @@ public:
     }
 };
 
-Adder sayFunction;
-
 int main() {
+  Adder sayFunction;
   assert(sayFunction() == "");
   assert(sayFunction("Hi!")() == "Hi!");
   assert(sayFunction("Hello")("there")() == "Hello there");
