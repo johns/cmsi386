@@ -32,6 +32,11 @@ public:
   Queue(const Queue& s) = delete;
   Queue& operator=(const Queue& s) = delete;
 
+  friend ostream& operator<<(ostream& os, const Queue& s) {
+    os << "Queue size: " << s.size << "\nHead value: " << s.head->data << "\nTail value: " << s.tail->data << std::endl;
+    return os;
+  };
+
   Queue(Queue&& s): size(s.size), head(s.head), tail(s.tail) {
     s.head = nullptr;
     s.tail = nullptr;
@@ -76,7 +81,7 @@ public:
 
   T dequeue() {
     if (size == 0) {
-      throw std::underflow_error("Cannot dequeue from an empty Queue.");
+      throw underflow_error("Cannot dequeue from an empty Queue.");
     }
     Node* nodeToDelete = head;
     T valueToReturn = head->data;
