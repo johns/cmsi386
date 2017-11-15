@@ -76,7 +76,7 @@ public:
 
   T dequeue() {
     if (size == 0) {
-      throw std::underflow_error("Cannot dequeue from an empty Queue.");
+      throw underflow_error("Cannot dequeue from an empty Queue.");
     }
     Node* nodeToDelete = head;
     T valueToReturn = head->data;
