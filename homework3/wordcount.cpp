@@ -25,7 +25,7 @@ int main() {
   string filename;
   cout << "What text file do you want to find the wordcounts of? ";
   cin >> filename;
-  vector<string,int> words;
+  map<string,int> words;
   ifstream fin(filename);
 
   string s;
