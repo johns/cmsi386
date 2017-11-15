@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iterator>
+#include <iostream>
 #include <fstream>
 #include <map>
 #include <string>
@@ -34,7 +34,6 @@ multimap<B,A> flip_map(const map<A,B> &s) {
 
 int main() {
   string filename;
-  cout << "What text file do you want to find the wordcounts of? ";
   cin >> filename;
   map<string,int> words;
   ifstream fin(filename);
@@ -47,6 +46,5 @@ int main() {
 
   for(multimap<int,string>::reverse_iterator riter = sortedwords.rbegin(); riter != sortedwords.rend(); ++riter)
     cout << riter->second << " " << riter->first << endl;
-
   return 0;
 }
