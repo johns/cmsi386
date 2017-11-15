@@ -1,3 +1,3 @@
 # lmu-cmsi-386
 
-Homework Group: Sam Chami and John Scott
+Homework Group: Sam Chami, John Scott, and Benjamin Smith
