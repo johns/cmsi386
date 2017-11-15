@@ -3,7 +3,6 @@
 #include <fstream>
 #include <map>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -21,6 +20,16 @@ string getNextChar(istream &in) {
   return ans;
 }
 
+pair<int,string> flip_pair(const pair<string,int> &p) {
+  return pair<int,string>(p.second, p.first);
+}
+
+multimap<int,string> flip_map(const map<string,int> &words) {
+  multimap<int,string> sortedwords;
+  transform(words.begin(), words.end(), inserter(sortedwords, sortedwords.begin()), flip_pair(pair<string,int>));
+  return sortedwords;
+}
+
 int main() {
   string filename;
   cout << "What text file do you want to find the wordcounts of? ";
@@ -32,6 +41,8 @@ int main() {
   while((s = getNextChar(fin))!= "")
     ++words[s];
 
-  for(map<string,int>::iterator iter = words.begin(); iter != words.end(); ++iter)
-    cout << iter->first << " " << iter->second << endl;
+  multimap<int,string> sortedwords = flip_map(words);
+
+  for(multimap<int,string>::iterator iter = sortedwords.begin(); iter != sortedwords.end(); ++iter)
+    cout << iter->second << " " << iter->first << endl;
 }
