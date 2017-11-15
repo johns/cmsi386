@@ -47,4 +47,5 @@ int main() {
 
   for(multimap<int,string>::reverse_iterator riter = sortedwords.rbegin(); riter != sortedwords.rend(); ++riter)
     cout << riter->second << " " << riter->first << endl;
+  return 0;
 }
