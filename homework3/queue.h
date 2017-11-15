@@ -31,6 +31,11 @@ public:
 
   Queue(const Queue& s) = delete;
   Queue& operator=(const Queue& s) = delete;
+  
+  friend ostream& operator<<(ostream& os, const Queue& s) {
+    os << "Queue size: " << s.size << "\nHead value: " << s.head->data << "\nTail value: " << s.tail->data << std::endl;
+    return os;
+  };
 
   Queue(Queue&& s): size(s.size), head(s.head), tail(s.tail) {
     s.head = nullptr;
