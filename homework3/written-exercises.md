@@ -97,10 +97,9 @@ Since f() is called within g(), it would look for variables first locally and th
 ### 6. Suppose you were asked to write a function to scramble (shuffle) a given array, in a mutable fashion. Give the function signature for a shuffle function for (a) a raw array, and (b) a std::array.
 a.
 ```C++
-template< std::size_t N >
-char[] f(char (&inputs)[N])
+char[] shuffle(char[] inputs, int length)
+)
 ```
-b.
 ```C++
-std::array shuffle(const std::array<char, 5>)
+std::array shuffle(const std::array<char, size>)
 ```

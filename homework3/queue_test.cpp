@@ -1,3 +1,11 @@
+/* Can you test that copying and assignment are prohibited in a unit test? Why or why not?
+
+   You cannot test that copying and assignment are prohibited in unit tests because these tests do not compile at runtime.
+   In order to test that copying is disabled, you must instantiate two Queues (p and q) and try to assign one of them (q)
+   on to the other (p). This creates a copy of q, therefore the code throws an error upon this assignment.
+   To test that assignment is prohibited, you must attempt to assign p using 'Queue<int> r(p);'. If this code fails, then
+   assignment has successfully been prohibited.
+*/
 #include <iostream>
 #include <string>
 #include <cassert>
