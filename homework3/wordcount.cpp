@@ -7,7 +7,7 @@
 
 using namespace std;
 
-string getNextChar(istream &in) {
+string getNextChar(istream in) {
   char c;
   string ans = "";
   c = in.get();
@@ -25,7 +25,7 @@ int main() {
   string filename;
   cout << "What text file do you want to find the wordcounts of? ";
   cin >> filename;
-  map<string,int> words;
+  vector<string,int> words;
   ifstream fin(filename);
 
   string s;

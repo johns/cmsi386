@@ -9,7 +9,6 @@ private:
   string result = "";
 public:
   Adder(string s = ""): result(s) {}
-
   Adder operator()(string word) {
     return Adder(result + " " + word);
   }
@@ -22,15 +21,15 @@ public:
     }
 };
 
-Adder f;
+Adder sayFunction;
 
 int main() {
-  assert(f() == "");
-  assert(f("Hi!")() == "Hi!");
-  assert(f("Hello")("there")() == "Hello there");
-  assert(f("My")("name")("is")("Jeff")() == "My name is Jeff");
-  assert(f(" ")() == " ");
-  assert(f("")() == "");
+  assert(sayFunction() == "");
+  assert(sayFunction("Hi!")() == "Hi!");
+  assert(sayFunction("Hello")("there")() == "Hello there");
+  assert(sayFunction("My")("name")("is")("Jeff")() == "My name is Jeff");
+  assert(sayFunction(" ")() == " ");
+  assert(sayFunction("")() == "");
   cout << "All tests passed!\n";
   return 0;
 }
