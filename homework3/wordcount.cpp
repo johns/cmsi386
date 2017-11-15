@@ -1,12 +1,12 @@
-#include <iterator>
 #include <iostream>
+#include <iterator>
 #include <fstream>
 #include <map>
 #include <string>
 
 using namespace std;
 
-string getNextChar(istream in) {
+string get_next_char(istream &in) {
   char c;
   string ans = "";
   c = in.get();
@@ -20,14 +20,16 @@ string getNextChar(istream in) {
   return ans;
 }
 
-pair<int,string> flip_pair(const pair<string,int> &p) {
-  return pair<int,string>(p.second, p.first);
+template<typename A,typename B>
+pair<B,A> flip_pair(const pair<A,B> &w) {
+  return pair<B,A>(w.second, w.first);
 }
 
-multimap<int,string> flip_map(const map<string,int> &words) {
-  multimap<int,string> sortedwords;
-  transform(words.begin(), words.end(), inserter(sortedwords, sortedwords.begin()), flip_pair(pair<string,int>));
-  return sortedwords;
+template<typename A,typename B>
+multimap<B,A> flip_map(const map<A,B> &s) {
+  multimap<B,A> sorted;
+  transform(s.begin(), s.end(), inserter(sorted, sorted.begin()), flip_pair<A,B>);
+  return sorted;
 }
 
 int main() {
@@ -38,11 +40,13 @@ int main() {
   ifstream fin(filename);
 
   string s;
-  while((s = getNextChar(fin))!= "")
+  while((s = get_next_char(fin))!= "")
     ++words[s];
 
   multimap<int,string> sortedwords = flip_map(words);
 
-  for(multimap<int,string>::iterator iter = sortedwords.begin(); iter != sortedwords.end(); ++iter)
-    cout << iter->second << " " << iter->first << endl;
+  for(multimap<int,string>::reverse_iterator riter = sortedwords.rbegin(); riter != sortedwords.rend(); ++riter)
+    cout << riter->second << " " << riter->first << endl;
+
+  return 0;
 }
