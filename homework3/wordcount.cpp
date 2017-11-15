@@ -22,7 +22,7 @@ string get_next_char(istream &in) {
 
 template<typename A,typename B>
 pair<B,A> flip_pair(const pair<A,B> &w) {
-  return std::pair<B,A>(w.second, w.first);
+  return pair<B,A>(w.second, w.first);
 }
 
 template<typename A,typename B>
