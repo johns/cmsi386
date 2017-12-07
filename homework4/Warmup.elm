@@ -1,7 +1,7 @@
 module Warmup exposing (..)
 
 import String exposing (join, split)
-import List exposing (..)
+import List exposing (filter, foldr, map, range)
 
 change : Int -> Result String ( Int, Int, Int, Int )
 change num =
@@ -20,3 +20,7 @@ powers base limit =
         Err "negative base"
     else
         Ok (map (\x -> base^x) (map toFloat (range 0 (floor (logBase base limit)))))
+
+sumOfCubesOfOdds : List Int -> Int
+sumOfCubesOfOdds liz =
+        foldr (+) 0 ( map (\x -> x^3) (filter (\x -> x % 2 == 1) liz))
