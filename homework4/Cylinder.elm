@@ -1,4 +1,5 @@
 module Cylinder exposing (..)
+
 type alias Cylinder =
   { radius : Float
   , height : Float
@@ -10,12 +11,12 @@ new =
   , height = 1.0
   }
 
-stretch : Cylinder -> Float -> Cylinder
-stretch new factor =
+stretch : Float -> Cylinder -> Cylinder
+stretch factor new =
   { new | height = new.height * factor }
 
-widen : Cylinder -> Float -> Cylinder
-widen new factor =
+widen : Float -> Cylinder -> Cylinder
+widen factor new =
   { new | radius = new.radius * factor }
 
 volume : Cylinder -> Float
