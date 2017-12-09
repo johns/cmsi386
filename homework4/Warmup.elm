@@ -44,6 +44,6 @@ daysBetween firstDate secondDate =
         Err notValid -> Err "Not a valid date"
         Ok primary ->
             case Date.fromString secondDate of
-                Err notValid -> Err "Not a valid date"
+                Err not -> Err "Not a valid date"
                 Ok secondary ->
                     Ok <| Date.diff Date.Day primary secondary
