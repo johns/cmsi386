@@ -42,8 +42,8 @@ daysBetween : String -> String -> Result String (Int)
 daysBetween firstDate secondDate =
     case Date.fromString firstDate of
         Err notValid -> Err "Not a valid date"
-        Ok input1 ->
+        Ok firstDate ->
             case Date.fromString secondDate of
                 Err not -> Err "Not a valid date"
-                Ok input2 ->
-                    Ok <| Date.diff Date.Day input1 input2
+                Ok secondDate ->
+                    Ok <| Date.diff Date.Day firstDate secondDate
