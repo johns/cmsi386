@@ -14,12 +14,6 @@ type alias Dates = {
 }
 type Msg = UpdateInput1 String | UpdateInput2 String
 
-formatOutput : Result String Int -> String
-formatOutput toFormat =
-  case toFormat of
-    Err msg -> ""
-    Ok output -> toString output
-
 dates : Dates
 dates = { firstDate = "", secondDate = "" }
 
@@ -29,59 +23,66 @@ update msg dates =
     UpdateInput1 input -> { dates | firstDate = input }
     UpdateInput2 input -> { dates | secondDate = input }
 
+outputToString : Result String Int -> String
+outputToString toFormat =
+  case toFormat of
+    Err msg -> ""
+    Ok output -> toString output
+
+
 view : Dates -> Html Msg
 view dates =
-  body
-    [style
-      [ ("text-align", "center")
-      , ("font", "16px Arial")
-      , ("background-color", "linen")
-      , ("margin", "0")
-      ]
-    ]
-    [ h1
-      [style
-        [ ("font", "bold 40px Avenir")
-        , ("margin-top", "0")
-        , ("padding", "5px")
-        , ("background-color", "cyan")
+    body
+        [style
+            [ ("text-align", "center")
+                , ("font", "16px Arial")
+                , ("background-color", "linen")
+                , ("margin", "0")
+            ]
         ]
-      ]
-      [ text "Date Calculator" ]
-    , p []
-      [text "From"
-      , input
-        [style
-          [ ("border", "2px solid grey")
-          , ("margin-left", "8px")
-          ]
-        , id "from"
-        , type_ "date"
-        , onInput UpdateInput1
-        , value dates.firstDate
-        ] []
-      ]
-    , p []
-      [text "to"
-      , input
-        [style
-          [("border", "2px solid grey")
-          , ("margin-left", "8px")
-          ]
-        , id "to"
-        , type_ "date"
-        , onInput UpdateInput2
-        , value dates.secondDate
-        ] []
-      ]
-    , p []
-      [text "is "
-      , div
-        [style
-          [("font-size", "28px")]
-          , id "output"
+        [ h1
+            [style
+                [ ("font", "bold 40px Avenir")
+                    , ("margin-top", "0")
+                    , ("padding", "5px")
+                    , ("background-color", "cyan")
+                ]
+            ]
+            [ text "Date Calculator" ]
+        , p []
+            [text "From"
+                , input
+                [style
+                    [ ("border", "2px solid grey")
+                    , ("margin-left", "8px")
+                    ]
+                    , id "from"
+                    , type_ "date"
+                    , onInput UpdateInput1
+                    , value dates.firstDate
+                ] []
+            ]
+        , p []
+            [text "to"
+                , input
+                [style
+                    [("border", "2px solid grey")
+                    , ("margin-left", "8px")
+                    ]
+                    , id "to"
+                    , type_ "date"
+                    , onInput UpdateInput2
+                    , value dates.secondDate
+                ] []
+            ]
+        , p []
+            [text "is "
+            , div
+            [style
+            [("font-size", "28px")]
+            , id "output"
+            ]
+            [ text (daysBetween dates.firstDate dates.secondDate |> outputToString)]
+            , text "days."
+            ]
         ]
-        [ text (daysBetween dates.firstDate dates.secondDate |> formatOutput)]
-      , text "days."
-      ]
-    ]
