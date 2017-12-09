@@ -36,7 +36,7 @@ view dates =
         [ h1 [style [("font","bold 40px Avenir"), ("background-color","cyan"), ("margin-top","0"), ("padding","5px")]]
             [text "Date Calculator"]
         , p [] [text "From", input [style [("border", "2px solid grey"),("margin-left", "8px")], type_ "date", id "from", onInput UpdateInput1, value dates.firstDate] []]
-        , p [] [text "to", input [style [("border", "2px solid grey"),("margin-left", "8px")], type_ "date", onInput UpdateInput2, value dates.secondDate] []]
+        , p [] [text "to", input [style [("border", "2px solid grey"),("margin-left", "8px")], type_ "date", id "to", onInput UpdateInput2, value dates.secondDate] []]
         , text "is"
         , p [] [ text (daysBetween dates.firstDate dates.secondDate |> outputToString)]
         , text "days."
