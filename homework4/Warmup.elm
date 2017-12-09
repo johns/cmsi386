@@ -2,7 +2,8 @@ module Warmup exposing (..)
 
 import String exposing (join, split)
 import List exposing (filter, foldr, map, range)
-import Date.Extra exposing (fromIsoString, diff)
+import Date exposing(fromString)
+import Date.Extra as Date exposing (diff)
 
 change : Int -> Result String ( Int, Int, Int, Int )
 change amount =
@@ -37,7 +38,12 @@ sumOfCubesOfOdds xs =
     in
         xs |> filter odd |> map cube |> sum
 
-daysBetween : String -> String -> Int
+daysBetween : String -> String -> Result String (Int)
 daysBetween firstDate secondDate =
-    Ok (Date.diff
-        (Date.fromIsoString firstDate) (Date.fromIsoString secondDate))
+    case Date.fromString firstDate of
+        Err notValid -> Err "Not a valid date"
+        Ok primary ->
+            case Date.fromString secondDate of
+                Err notValid -> Err "Not a valid date"
+                Ok secondary ->
+                    Ok <| Date.diff Date.Day primary secondary
