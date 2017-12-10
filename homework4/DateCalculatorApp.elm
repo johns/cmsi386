@@ -5,6 +5,7 @@ import Html.Attributes exposing (id, type_, value, style)
 import Html.Events exposing (onInput)
 import Warmup exposing (daysBetween)
 
+main : Program Never Dates Msg
 main =
   Html.beginnerProgram { model = dates, view = view, update = update }
 
