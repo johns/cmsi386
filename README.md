@@ -1,2 +1,3 @@
-# cmsi386
-Homework assignments for CMSI 386 by Sam Chami, John Scott, and Benjamin Smith
+# cmsi386 - Programming Languages
+Homework assignments for CMSI 386 - Programming Languages
+Colaborators: Sam Chami, John Scott, and Benjamin Smith
