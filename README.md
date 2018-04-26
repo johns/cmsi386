@@ -1,3 +1,4 @@
-# lmu-cmsi-386
+# cmsi386 - Programming Languages
+Homework assignments from CMSI 386 - Programming Languages
 
-Homework Group: Sam Chami, John Scott, and Benjamin Smith
+Contributors: Sam Chami, John Scott, and Benjamin Smith
