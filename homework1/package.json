@@ -26,7 +26,7 @@
     "tough-cookie": "^2.4.3"
   },
   "devDependencies": {
-    "eslint": "^4.6.1",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "should": "^13.0.1"
